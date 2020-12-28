@@ -1,0 +1,1 @@
+PEBBLE_WFE_NONCEREJECT=0 PEBBLE_VA_NOSLEEP=1 pebble -config ./pebble-config.json

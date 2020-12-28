@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./main dns01 \
+--dir https://0.0.0.0:14000/dir \
+--record 1.2.3.4 \
+--domain example.com
