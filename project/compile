@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd project
+go build main.go
+cd ..
+echo "Built main.go"
