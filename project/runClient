@@ -1,6 +1,35 @@
 #!/bin/bash
 
-./main dns01 \
---dir https://0.0.0.0:14000/dir \
---record 1.2.3.4 \
---domain example.com
+print_usage () {
+    echo "Usage: ./runClient <option>
+<option> can be:
+    1 : DNS challenge
+    2 : HTTP challenge"
+}
+
+if [ $# != 1 ]
+then
+    print_usage
+    exit 0
+fi
+
+case $1 in
+    1)
+        ./main dns01 \
+        --dir https://0.0.0.0:14000/dir \
+        --record 1.2.3.4 \
+        --domain example.com
+    ;;
+
+    2)
+        ./main http01 \
+        --dir https://0.0.0.0:14000/dir \
+        --record 127.0.0.1 \
+        --domain example.com
+    ;;
+
+    *)
+        print_usage
+    ;;
+esac
+
