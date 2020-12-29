@@ -87,7 +87,16 @@ func TestGetDirectory(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 
 	assertErrorNil(t, err)
 
@@ -130,7 +139,16 @@ func TestGetNonce(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	nonce, err := client.GetNonce()
@@ -152,7 +170,16 @@ func TestJsonWebKey(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	_, err = client.GetNonce()
@@ -190,7 +217,16 @@ func TestPrepareNewAccountHeader(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	_, err = client.GetNonce()
@@ -224,7 +260,16 @@ func TestPrepareNewAccountPayload(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	_, err = client.GetNonce()
@@ -245,7 +290,16 @@ func TestCreateSignature(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	// Overwrite key with a repeatable value
@@ -283,7 +337,16 @@ func TestEncodeSignature(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	r, _ := new(big.Int).SetString("5865ab0f6bc444f840617e8279ef25b247692f58a6ddc936a2be8416beee1327", 16)
@@ -305,7 +368,16 @@ func TestPrepareOrderPayload(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	identifiers := []string{"*.example.com", "www.google.com"}
@@ -325,7 +397,16 @@ func TestPrepareCertificateOrderHeader(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	_, err = client.GetNonce()
@@ -349,31 +430,40 @@ func TestGetNextAuthorization(t *testing.T) {
 	acmeSrv := acmeServerMock()
 	defer acmeSrv.Close()
 
-	client, err := NewAcmeClient(acmeSrv.URL + "/dir")
+	domain := "example.com"
+	txtRecord := "txt record"
+	is := ClientInitStruct{
+		ChalType:     "dns01",
+		Directory:    acmeSrv.URL + "/dir",
+		DNSTxtDomain: &domain,
+		DNSTxtValue:  &txtRecord,
+		IP:           "1.2.3.4",
+	}
+	client, err := NewAcmeClient(is)
 	assertErrorNil(t, err)
 
 	_, err = client.GetNonce()
 	assertErrorNil(t, err)
 
-	client.authorizations = []string{"Auth-1", "Auth-2", "Auth-3"}
+	client.Authorizations = []string{"Auth-1", "Auth-2", "Auth-3"}
 
-	auth := client.GetNextAuthorization()
-	if auth != "Auth-1" {
-		t.Errorf("Wrong authorization, got %q want \"Auth-1\"", auth)
+	path, domain := client.GetNextAuthorization()
+	if path != "Auth-1" {
+		t.Errorf("Wrong authorization, got %q want \"Auth-1\"", path)
 	}
 
-	auth = client.GetNextAuthorization()
-	if auth != "Auth-2" {
-		t.Errorf("Wrong authorization, got %q want \"Auth-2\"", auth)
+	path, domain = client.GetNextAuthorization()
+	if path != "Auth-2" {
+		t.Errorf("Wrong authorization, got %q want \"Auth-2\"", path)
 	}
 
-	auth = client.GetNextAuthorization()
-	if auth != "Auth-3" {
-		t.Errorf("Wrong authorization, got %q want \"Auth-3\"", auth)
+	path, domain = client.GetNextAuthorization()
+	if path != "Auth-3" {
+		t.Errorf("Wrong authorization, got %q want \"Auth-3\"", path)
 	}
 
-	auth = client.GetNextAuthorization()
-	if auth != "" {
-		t.Errorf("Wrong authorization, got %q want \"\"", auth)
+	path, domain = client.GetNextAuthorization()
+	if path != "" {
+		t.Errorf("Wrong authorization, got %q want \"\"", path)
 	}
 }
