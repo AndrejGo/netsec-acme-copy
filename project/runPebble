@@ -1,1 +1,1 @@
-PEBBLE_WFE_NONCEREJECT=0 PEBBLE_VA_NOSLEEP=1 pebble -config ./pebble-config.json
+PEBBLE_WFE_NONCEREJECT=0 pebble -config ./pebble-config.json -dnsserver :10053
